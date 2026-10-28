@@ -1,3 +1,7 @@
+<!doctype html>
+<html lang="fr">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>LB Sport</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="LB Sport, agence d'accompagnement et de marketing pour les athlètes de football.">
@@ -157,6 +161,14 @@ section{position:relative}
 .deliver span{color:var(--mute);font-size:15px}
 
 .roster{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.squad{position:relative;margin:0;aspect-ratio:16/8;max-width:100%;overflow:hidden;background:var(--coal);border:1px solid var(--hair)}
+.squad img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.squad::after{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(0deg,rgba(9,9,10,.85),transparent 40%);pointer-events:none}
+.squad-empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;background:repeating-linear-gradient(90deg,transparent 0 79px,var(--hair-soft) 79px 80px),radial-gradient(ellipse at 50% 40%,rgba(239,207,94,.10),transparent 60%)}
+.squad-empty .crest{width:54px;height:62px}
+.squad-empty b{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:clamp(40px,6vw,84px);line-height:.9;color:transparent;-webkit-text-stroke:1px var(--gold)}
+.squad figcaption{position:absolute;left:28px;right:28px;bottom:24px;z-index:3;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.squad .bracket{z-index:3}
 .card{position:relative;background:var(--coal);overflow:hidden;display:flex;flex-direction:column}
 .card .ph{position:relative;aspect-ratio:3/4;max-width:100%;overflow:hidden}
 .card .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;filter:grayscale(.5) contrast(1.05);transition:filter .6s,transform 1s cubic-bezier(.16,.8,.2,1)}
@@ -240,6 +252,8 @@ footer{border-top:1px solid var(--hair);padding-block:72px 40px;overflow:hidden}
   .alumni .ph{min-height:380px}
 }
 @media (max-width:640px){
+  .squad{aspect-ratio:4/5}
+  .squad figcaption{left:18px;right:18px;bottom:18px}
   body{font-size:16px}
   .wrap{padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
   .nav .wrap{height:64px}
@@ -355,7 +369,7 @@ footer{border-top:1px solid var(--hair);padding-block:72px 40px;overflow:hidden}
         <p class="tag">Naissance</p>
         <p class="quote">Il me fallait une plateforme solide pour mettre en œuvre ma passion : <span class="gold">optimiser l'évolution des jeunes joueurs.</span></p>
         <ol class="timeline">
-          <li><span class="tag">EDM Montreuil · 10 ans</span><p>Le football commence au club du quartier. Très vite, il devient plus qu'un loisir : un objectif, une ambition, un projet de vie.</p></li>
+          <li><span class="tag">ESDM Montreuil · 10 ans</span><p>Le football commence au club du quartier. Très vite, il devient plus qu'un loisir : un objectif, une ambition, un projet de vie.</p></li>
           <li><span class="tag">Paris FC puis LOSC Lille</span><p>Après le Paris FC, l'entrée au centre de formation du LOSC marque un tournant. Suivent plusieurs clubs, la rigueur du haut niveau, la concurrence et les réalités du football.</p></li>
           <li><span class="tag">L'autre réalité</span><p>Des moments de doute, des choix complexes, et aucune structure pour conseiller ni orienter. Dans le football, avancer seul rend tout plus difficile.</p></li>
           <li><span class="tag">LB Sport</span><p>À l'arrêt de sa carrière, Randy crée LB Sport pour offrir aux jeunes joueurs et à leurs familles le soutien, les conseils et la vision stratégique qu'il aurait aimé avoir à ses débuts.</p></li>
@@ -416,20 +430,16 @@ footer{border-top:1px solid var(--hair);padding-block:72px 40px;overflow:hidden}
         <div><p class="tag">Nos athlètes</p><h2 class="h-l">L'effectif</h2></div>
         <p class="p" style="max-width:24em">Des joueuses suivies au quotidien, sur le terrain comme en dehors.</p>
       </div>
-      <div class="roster">
-        <article class="card">
-          <div class="ph"><span class="num">01</span><img src="img/doreen.jpg" alt="Doreen Norden en match" loading="lazy"></div>
-          <div class="body"><span class="tag">Athlète LB Sport</span><h3>Doreen Norden</h3><div class="stat"><span>Discipline</span><b>Football</b></div></div>
-        </article>
-        <article class="card">
-          <div class="ph"><span class="num">02</span><img src="img/hero.jpg" alt="Joueuse LB Sport à l'entraînement" loading="lazy" style="object-position:22% 30%"></div>
-          <div class="body"><span class="tag">Athlète LB Sport</span><h3>Joueuse LB Sport</h3><div class="stat"><span>Discipline</span><b>Football</b></div></div>
-        </article>
-        <article class="card join">
-          <div><span class="tag">Place disponible</span><h3>Ta place <span class="gold">est ici</span></h3><p>Tu veux être accompagnée par LB Sport ? Envoie ta candidature, on revient vers toi rapidement.</p></div>
-          <a class="btn ghost" href="#selections">Candidater <svg><use href="#arrow"/></svg></a>
-        </article>
-      </div>
+      <figure class="squad">
+        <img src="img/equipe.jpg" alt="Les joueuses accompagnées par LB Sport réunies" loading="lazy" onerror="this.remove()">
+        <div class="squad-empty" aria-hidden="true">
+          <svg class="crest"><use href="#crest"/></svg>
+          <span class="tag">Photo officielle de l'effectif</span>
+          <b>Bientôt en ligne</b>
+        </div>
+        <span class="bracket a" aria-hidden="true"></span>
+        <figcaption><span class="tag">Saison 2026 2027</span><a class="btn ghost" href="#selections">Rejoindre l'effectif <svg><use href="#arrow"/></svg></a></figcaption>
+      </figure>
     </div>
   </section>
 
@@ -447,13 +457,13 @@ footer{border-top:1px solid var(--hair);padding-block:72px 40px;overflow:hidden}
   <section class="sec">
     <div class="wrap">
       <div class="sec-head">
-        <div><p class="tag">Ils sont passés chez LB Sport</p><h2 class="h-l">Elles <span class="outline">volent</span> <span class="gold">de leurs ailes</span></h2></div>
-        <p class="p" style="max-width:24em">Un clin d'œil à nos anciennes joueuses. Nous leur souhaitons beaucoup de réussite pour la suite de leur parcours.</p>
+        <div><p class="tag">Nos anciennes joueuses</p><h2 class="h-l">Anciennes <span class="gold">joueuses</span></h2></div>
+        <p class="p" style="max-width:24em">Un clin d'œil aux joueuses que nous avons accompagnées. Nous leur souhaitons beaucoup de réussite pour la suite de leur parcours.</p>
       </div>
       <article class="alumni">
         <div class="ph"><img src="img/elodie.jpg" alt="Elodie Soullard sous le maillot de l'équipe de France" loading="lazy"></div>
         <div class="info">
-          <div><span class="tag" style="display:block;margin-bottom:18px">Ancienne joueuse</span><h3>Elodie<br>Soullard</h3></div>
+          <div><span class="tag" style="display:block;margin-bottom:18px">Ancienne joueuse LB Sport</span><h3>Elodie<br>Soullard</h3></div>
           <div class="club"><span class="tag dim">Club actuel</span><b>Deportivo Camoens</b><span style="color:var(--mute)">Segunda División, Espagne</span></div>
         </div>
       </article>
