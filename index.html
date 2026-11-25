@@ -3,6 +3,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>LB Sport</title>
+<link rel="icon" href="img/logo-mini.jpg">
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="LB Sport, agence d'accompagnement et de marketing pour les athlètes de football.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -77,6 +78,10 @@ a{color:inherit;text-decoration:none}
 .frame img{width:100%;height:100%;object-fit:cover;object-position:30% 30%;filter:grayscale(.35) contrast(1.08) brightness(.82);transform:scale(1.04);animation:settle 2.2s cubic-bezier(.16,.8,.2,1) both}
 @keyframes settle{from{transform:scale(1.14)}to{transform:scale(1.04)}}
 .frame::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--ink) 0%,rgba(9,9,10,.15) 38%,transparent 60%),linear-gradient(0deg,var(--ink) 0%,transparent 30%)}
+.logo-frame{background:#000;display:flex;align-items:center;justify-content:center}
+.logo-frame img{width:74%;height:auto;max-height:86%;object-fit:contain;filter:none;transform:none;animation:logoIn 1.6s cubic-bezier(.16,.8,.2,1) both;margin-left:16%}
+@keyframes logoIn{from{transform:scale(.9);opacity:0}to{transform:none;opacity:1}}
+.logo-frame::after{background:linear-gradient(90deg,var(--ink) 0%,transparent 22%),linear-gradient(0deg,var(--ink) 0%,transparent 16%)}
 .scan{position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.7;top:0;animation:scan 6s linear infinite;z-index:2}
 @keyframes scan{0%{top:2%}100%{top:98%}}
 .hud{position:absolute;z-index:3;font-family:var(--tech);font-size:9.5px;letter-spacing:.24em;color:var(--gold);text-transform:uppercase}
@@ -190,13 +195,6 @@ section{position:relative}
 .who img{width:58px;height:58px;border-radius:50%;object-fit:cover;border:1px solid var(--gold)}
 .who b{display:block;font-family:var(--display);font-size:24px;text-transform:uppercase;font-weight:800;letter-spacing:.04em}
 
-.alumni{display:grid;grid-template-columns:7fr 5fr;gap:0;border:1px solid var(--hair)}
-.alumni .ph{position:relative;min-height:440px;overflow:hidden}
-.alumni .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
-.alumni .info{padding:clamp(28px,4vw,56px);display:flex;flex-direction:column;justify-content:space-between;gap:40px;background:var(--ink)}
-.alumni .info h3{margin:0;font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:clamp(48px,5vw,76px);line-height:.88}
-.club{display:flex;flex-direction:column;gap:6px;padding-top:24px;border-top:1px solid var(--hair)}
-.club b{font-family:var(--display);font-weight:700;font-size:26px;text-transform:uppercase}
 
 .team{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
 .member{display:grid;grid-template-columns:200px 1fr;gap:0;border:1px solid var(--hair);background:var(--coal)}
@@ -204,6 +202,47 @@ section{position:relative}
 .member .body{padding:28px;display:flex;flex-direction:column;justify-content:space-between;gap:20px;min-width:0}
 .member h3{margin:0;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:34px;line-height:.95}
 .member p{margin:0;color:var(--mute);font-size:15px}
+
+.players{grid-template-columns:repeat(4,1fr)}
+.players .card h3{min-height:2em}
+.players .stat b{text-align:right}
+
+.group-head{display:flex;align-items:center;gap:18px;margin-bottom:28px}
+.group-head i{flex:1;height:1px;background:var(--hair)}
+.staff{display:grid;grid-template-columns:repeat(5,1fr);gap:20px}
+.person{background:var(--coal);border:1px solid var(--hair);display:flex;flex-direction:column;min-width:0}
+.person .ph{position:relative;aspect-ratio:4/5;overflow:hidden}
+.person .ph img{width:100%;height:100%;object-fit:cover;object-position:40% 20%;filter:grayscale(.4) contrast(1.05);transition:filter .6s,transform 1s cubic-bezier(.16,.8,.2,1)}
+.person:hover .ph img{filter:none;transform:scale(1.04)}
+.person .ph.empty{display:flex;align-items:center;justify-content:center;background:repeating-linear-gradient(90deg,transparent 0 39px,var(--hair-soft) 39px 40px),radial-gradient(ellipse at 50% 40%,rgba(239,207,94,.12),transparent 65%)}
+.person .ph.empty b{font-family:var(--display);font-weight:900;font-size:clamp(64px,7vw,96px);line-height:1;color:transparent;-webkit-text-stroke:1px var(--gold);letter-spacing:.02em}
+.person .body{padding:20px 20px 24px;border-top:1px solid var(--gold);display:flex;flex-direction:column;gap:10px}
+.person h3{margin:0;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:28px;line-height:.95;min-height:1.9em;overflow-wrap:anywhere}
+.partners{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--hair);border-left:1px solid var(--hair)}
+.partner{display:flex;align-items:center;gap:20px;padding:24px;border-right:1px solid var(--hair);border-bottom:1px solid var(--hair);min-width:0}
+.partner img,.partner .ini{width:64px;height:64px;border-radius:50%;flex:none;object-fit:cover;border:1px solid var(--gold)}
+.partner .ini{display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:800;font-size:24px;color:var(--gold);background:rgba(239,207,94,.06)}
+.partner h3{margin:0;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:26px;line-height:1}
+.partner p{margin:6px 0 0;color:var(--mute);font-size:15px}
+
+.affiches{columns:4;column-gap:20px}
+.aff{position:relative;display:block;width:100%;margin:0 0 20px;padding:0;border:1px solid var(--hair);background:var(--coal);cursor:zoom-in;break-inside:avoid;overflow:hidden;color:inherit;font:inherit;text-align:left}
+.aff img{width:100%;height:auto;transition:transform 1s cubic-bezier(.16,.8,.2,1),filter .6s;filter:brightness(.92)}
+.aff:hover img,.aff:focus-visible img{transform:scale(1.035);filter:none}
+.aff-cap{position:absolute;left:0;right:0;bottom:0;padding:40px 16px 14px;display:flex;flex-direction:column;gap:4px;background:linear-gradient(0deg,rgba(9,9,10,.92),transparent);opacity:0;transform:translateY(8px);transition:opacity .4s,transform .4s}
+.aff-cap b{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:22px;line-height:1}
+.aff:hover .aff-cap,.aff:focus-visible .aff-cap{opacity:1;transform:none}
+.lb{position:fixed;inset:0;z-index:100;background:rgba(9,9,10,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;gap:24px;padding:max(24px,env(safe-area-inset-top,0px)) 24px max(24px,env(safe-area-inset-bottom,0px))}
+.lb[hidden]{display:none}
+.lb figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:16px;min-width:0}
+.lb img{max-width:min(88vw,1000px);max-height:calc(100vh - 140px);max-height:calc(100dvh - 140px);width:auto;height:auto;border:1px solid var(--hair);animation:lbIn .45s cubic-bezier(.16,.8,.2,1)}
+@keyframes lbIn{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:none}}
+.lb figcaption{display:flex;gap:18px;align-items:baseline}
+.lb figcaption b{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:24px}
+.lb-nav,.lb-x{flex:none;width:52px;height:52px;display:flex;align-items:center;justify-content:center;border:1px solid var(--gold);background:transparent;color:var(--gold);cursor:pointer;transition:background .3s,color .3s}
+.lb-nav:hover,.lb-x:hover{background:var(--gold);color:var(--ink)}
+.lb-nav svg{width:16px;height:16px}
+.lb-x{position:absolute;top:max(20px,env(safe-area-inset-top,0px));right:20px;font-size:28px;line-height:1;font-family:var(--body)}
 
 .selection{overflow:hidden}
 .sel-grid{display:grid;grid-template-columns:5fr 7fr;gap:80px;align-items:start}
@@ -236,20 +275,26 @@ footer{border-top:1px solid var(--hair);padding-block:72px 40px;overflow:hidden}
 .foot-row nav a:hover{color:var(--gold)}
 .foot-row small{color:var(--mute);font-size:13px}
 
+@media (max-width:1200px){.links{gap:20px;letter-spacing:.18em}}
 @media (max-width:1000px){
   .links{display:none}
-  .hero-grid,.manifest,.founder-grid,.exp-grid,.work-grid,.sel-grid,.alumni{grid-template-columns:1fr}
+  .hero-grid,.manifest,.founder-grid,.exp-grid,.work-grid,.sel-grid{grid-template-columns:1fr}
   .hero-grid{min-height:0}
   .hero-media{margin-left:0;order:-1;height:62vw;min-height:320px;max-height:560px}
   .frame{clip-path:polygon(0 0,100% 0,100% 100%,0 100%)}
   .frame::after{background:linear-gradient(0deg,var(--ink) 0%,transparent 45%)}
+  .logo-frame::after{background:linear-gradient(0deg,var(--ink) 0%,transparent 18%)}
+  .logo-frame img{margin-left:0;width:auto;height:78%;max-height:78%}
   .bracket.b,.hud.br{display:none}
-  .hero-copy{padding-block:0 56px;margin-top:-80px}
+  .hero-copy{padding-block:0 56px;margin-top:-16px}
   .portrait{position:relative;top:0}
   .roster{grid-template-columns:1fr 1fr}
   .team{grid-template-columns:1fr}
+  .players{grid-template-columns:1fr 1fr}
+  .staff{grid-template-columns:repeat(3,1fr)}
+  .partners{grid-template-columns:1fr 1fr}
+  .affiches{columns:3}
   .manifest,.founder-grid,.exp-grid,.work-grid,.sel-grid{gap:56px}
-  .alumni .ph{min-height:380px}
 }
 @media (max-width:640px){
   .squad{aspect-ratio:4/5}
@@ -262,6 +307,25 @@ footer{border-top:1px solid var(--hair);padding-block:72px 40px;overflow:hidden}
   .pillar+.pillar{padding-left:0;border-left:0;border-top:1px solid var(--hair)}
   .deliver div:nth-child(even){padding-left:0;border-left:0}
   .roster{grid-template-columns:1fr}
+  .players{grid-template-columns:1fr 1fr;gap:14px}
+  .players .card h3{font-size:24px}
+  .players .card .num{font-size:44px}
+  .players .card .body{padding:16px 14px 18px}
+  .players .stat{flex-direction:column;gap:4px}
+  .players .stat b{text-align:left}
+  .staff{grid-template-columns:1fr 1fr;gap:14px}
+  .person h3{font-size:22px}
+  .person .body{padding:16px 14px 18px}
+  .partners{grid-template-columns:1fr}
+  .affiches{columns:2;column-gap:12px}
+  .aff{margin-bottom:12px}
+  .aff-cap{display:none}
+  .lb{padding-inline:12px}
+  .lb-nav{position:absolute;bottom:max(20px,env(safe-area-inset-bottom,0px));width:48px;height:48px}
+  .lb-nav.prev{left:calc(50% - 60px)}
+  .lb-nav.next{right:calc(50% - 60px)}
+  .lb img{max-width:94vw;max-height:calc(100dvh - 200px)}
+  .lb figure{margin-top:-40px}
   .member{grid-template-columns:130px 1fr}
   .member img{min-height:200px}
   .member h3{font-size:28px}
@@ -299,7 +363,9 @@ footer{border-top:1px solid var(--hair);padding-block:72px 40px;overflow:hidden}
       <a href="#agence">L'agence</a>
       <a href="#fondateur">Fondateur</a>
       <a href="#expertise">Expertise</a>
+      <a href="#affiches">Affiches</a>
       <a href="#athletes">Athlètes</a>
+      <a href="#joueuses">Joueuses</a>
       <a href="#team">La team</a>
     </nav>
     <a class="btn" href="#selections">Selections</a>
@@ -321,7 +387,7 @@ footer{border-top:1px solid var(--hair);padding-block:72px 40px;overflow:hidden}
         </div>
       </div>
       <div class="hero-media">
-        <div class="frame"><img src="img/hero.jpg" alt="Une joueuse accompagnée par LB Sport conduit le ballon à l'entraînement" fetchpriority="high"></div>
+        <div class="frame logo-frame"><img src="img/logo.jpg" alt="Logo LB Sport" fetchpriority="high"></div>
         <div class="scan" aria-hidden="true"></div>
         <span class="bracket a" aria-hidden="true"></span>
         <span class="bracket b" aria-hidden="true"></span>
@@ -424,6 +490,28 @@ footer{border-top:1px solid var(--hair);padding-block:72px 40px;overflow:hidden}
     </div>
   </section>
 
+  <section class="sec" id="affiches" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><p class="tag">La galerie</p><h2 class="h-l">Nos <span class="outline">affiches</span></h2></div>
+        <p class="p" style="max-width:24em">Une sélection des visuels matchday créés pour nos joueuses cette saison. Touche une affiche pour la voir en grand.</p>
+      </div>
+      <div class="affiches">
+        <button class="aff" type="button" data-i="0"><img src="img/affiches/a01.jpg" width="750" height="1000" alt="Affiche Matchday, VGA Saint Maur contre Stade Rennais FC" loading="lazy"><span class="aff-cap"><span class="tag">D3 Féminine</span><b>Matchday</b></span></button>
+        <button class="aff" type="button" data-i="1"><img src="img/affiches/a02.jpg" width="667" height="1000" alt="Affiche Doreen Norden, Thorigné ES contre Stade Rennais FC" loading="lazy"><span class="aff-cap"><span class="tag">Coupe de France</span><b>Doreen Norden</b></span></button>
+        <button class="aff" type="button" data-i="2"><img src="img/affiches/a03.jpg" width="667" height="1000" alt="Affiche Diore Saïd, Créteil F. contre AAS Sarcelles" loading="lazy"><span class="aff-cap"><span class="tag">Matchday</span><b>Diore Saïd</b></span></button>
+        <button class="aff" type="button" data-i="3"><img src="img/affiches/a04.jpg" width="1000" height="667" alt="Affiche ESTAC Troyes, Taissy AS contre ESTAC Troyes" loading="lazy"><span class="aff-cap"><span class="tag">Coupe de France</span><b>ESTAC Troyes</b></span></button>
+        <button class="aff" type="button" data-i="4"><img src="img/affiches/a05.jpg" width="667" height="1000" alt="Affiche Esther Litho, Taissy AS contre ESTAC Troyes" loading="lazy"><span class="aff-cap"><span class="tag">Coupe de France</span><b>Esther Litho</b></span></button>
+        <button class="aff" type="button" data-i="5"><img src="img/affiches/a06.jpg" width="667" height="1000" alt="Affiche Nogo Meïté, Seizième ES contre VGA Saint Maur" loading="lazy"><span class="aff-cap"><span class="tag">Matchday</span><b>Nogo Meïté</b></span></button>
+        <button class="aff" type="button" data-i="6"><img src="img/affiches/a07.jpg" width="750" height="1000" alt="Affiche VGA Saint Maur, VGA Saint Maur contre Stade Rennais FC" loading="lazy"><span class="aff-cap"><span class="tag">D3 Féminine</span><b>VGA Saint Maur</b></span></button>
+        <button class="aff" type="button" data-i="7"><img src="img/affiches/a08.jpg" width="667" height="1000" alt="Affiche Anne Moukoko, Seizième ES contre VGA Saint Maur" loading="lazy"><span class="aff-cap"><span class="tag">Matchday</span><b>Anne Moukoko</b></span></button>
+        <button class="aff" type="button" data-i="8"><img src="img/affiches/a09.jpg" width="750" height="1000" alt="Affiche VGA Saint Maur, VGA Saint Maur contre Stade Rennais FC" loading="lazy"><span class="aff-cap"><span class="tag">D3 Féminine</span><b>VGA Saint Maur</b></span></button>
+        <button class="aff" type="button" data-i="9"><img src="img/affiches/a10.jpg" width="752" height="1000" alt="Affiche Benrahma, FC Rouen 1899 contre St Georges Guyonnier" loading="lazy"><span class="aff-cap"><span class="tag">D3 Féminine</span><b>Benrahma</b></span></button>
+        <button class="aff" type="button" data-i="10"><img src="img/affiches/a11.jpg" width="750" height="1000" alt="Affiche AAS Sarcelles, AAS Sarcelles contre EA Guingamp" loading="lazy"><span class="aff-cap"><span class="tag">D3 Féminine</span><b>AAS Sarcelles</b></span></button>
+      </div>
+    </div>
+  </section>
+
   <section class="sec" id="athletes" style="padding-top:0">
     <div class="wrap">
       <div class="sec-head">
@@ -454,34 +542,69 @@ footer{border-top:1px solid var(--hair);padding-block:72px 40px;overflow:hidden}
     </div>
   </section>
 
-  <section class="sec">
+  <section class="sec" id="joueuses">
     <div class="wrap">
       <div class="sec-head">
-        <div><p class="tag">Nos anciennes joueuses</p><h2 class="h-l">Anciennes <span class="gold">joueuses</span></h2></div>
+        <div><p class="tag">Elles sont passées par LB Sport</p><h2 class="h-l">Nos <span class="gold">joueuses</span></h2></div>
         <p class="p" style="max-width:24em">Un clin d'œil aux joueuses que nous avons accompagnées. Nous leur souhaitons beaucoup de réussite pour la suite de leur parcours.</p>
       </div>
-      <article class="alumni">
-        <div class="ph"><img src="img/elodie.jpg" alt="Elodie Soullard sous le maillot de l'équipe de France" loading="lazy"></div>
-        <div class="info">
-          <div><span class="tag" style="display:block;margin-bottom:18px">Ancienne joueuse LB Sport</span><h3>Elodie<br>Soullard</h3></div>
-          <div class="club"><span class="tag dim">Club actuel</span><b>Deportivo Camoens</b><span style="color:var(--mute)">Segunda División, Espagne</span></div>
-        </div>
-      </article>
+      <div class="roster players">
+        <article class="card">
+          <div class="ph"><span class="num">01</span><img src="img/chiara.jpg" alt="Chiara Baylet sous le maillot de Montpellier" loading="lazy"></div>
+          <div class="body"><h3>Chiara<br>Baylet</h3><div class="stat"><span>Club</span><b>Montpellier HSC</b></div></div>
+        </article>
+        <article class="card">
+          <div class="ph"><span class="num">02</span><img src="img/mera.jpg" alt="Mera ballon au pied en match" loading="lazy" style="object-position:72% 30%"></div>
+          <div class="body"><h3>Mera</h3><div class="stat"><span>Club</span><b>Fleury FC 91</b></div></div>
+        </article>
+        <article class="card">
+          <div class="ph"><span class="num">03</span><img src="img/gloria.jpg" alt="Gloria sous le maillot de l'AJ Auxerre" loading="lazy" style="object-position:30% 20%"></div>
+          <div class="body"><h3>Gloria</h3><div class="stat"><span>Club</span><b>AJ Auxerre</b></div></div>
+        </article>
+        <article class="card">
+          <div class="ph"><span class="num">04</span><img src="img/elodie.jpg" alt="Elodie Soullard sous le maillot de l'équipe de France" loading="lazy"></div>
+          <div class="body"><h3>Elodie<br>Soullard</h3><div class="stat"><span>Club</span><b>Martos Fútbol Sala</b></div></div>
+        </article>
+      </div>
     </div>
   </section>
 
   <section class="sec" id="team" style="padding-top:0">
     <div class="wrap">
       <div class="sec-head"><div><p class="tag">La team</p><h2 class="h-l">Bien entourée</h2></div></div>
-      <div class="team">
-        <article class="member">
-          <img src="img/fondateur.jpg" alt="Randy Kiangekaka" loading="lazy">
-          <div class="body"><span class="tag">Fondateur</span><div><h3>Randy Kiangekaka</h3><p style="margin-top:10px">Visionnaire de LB Sport et référent féminin</p></div></div>
+
+      <div class="group-head"><span class="tag">Team LB Sport</span><i></i><span class="tag dim">05</span></div>
+      <div class="staff">
+        <article class="person">
+          <div class="ph"><img src="img/fondateur.jpg" alt="Randy Kiangekaka" loading="lazy"></div>
+          <div class="body"><span class="tag">Fondateur</span><h3>Randy<br>Kiangekaka</h3></div>
         </article>
-        <article class="member">
-          <img src="img/mahe.jpg" alt="Mahé Lebreton" loading="lazy">
-          <div class="body"><span class="tag">Team prestataire</span><div><h3>Mahé Lebreton</h3><p style="margin-top:10px">Photographe basé dans le Sud</p></div></div>
+        <article class="person">
+          <div class="ph empty" aria-hidden="true"><b>IB</b></div>
+          <div class="body"><span class="tag">Team LB Sport</span><h3>Ibrahim</h3></div>
         </article>
+        <article class="person">
+          <div class="ph empty" aria-hidden="true"><b>GI</b></div>
+          <div class="body"><span class="tag">Team LB Sport</span><h3>Ginette</h3></div>
+        </article>
+        <article class="person">
+          <div class="ph empty" aria-hidden="true"><b>AU</b></div>
+          <div class="body"><span class="tag">Team LB Sport</span><h3>Aurélie</h3></div>
+        </article>
+        <article class="person">
+          <div class="ph"><img src="img/mbeko.jpg" alt="Mbeko Tabula, avocat de LB Sport" loading="lazy" style="object-position:50% 20%"></div>
+          <div class="body"><span class="tag">Avocat</span><h3>Mbeko<br>Tabula</h3></div>
+        </article>
+      </div>
+
+      <div class="group-head" style="margin-top:72px"><span class="tag">Team prestataire</span><i></i><span class="tag dim">06</span></div>
+      <div class="partners">
+        <article class="partner"><img src="img/mahe.jpg" alt="Mahé Lebreton" loading="lazy"><div><h3>Mahé Lebreton</h3><p>Photographe basé dans le Sud</p></div></article>
+        <article class="partner"><span class="ini" aria-hidden="true">LA</span><div><h3>Lassana</h3><p>Coach mental</p></div></article>
+        <article class="partner"><span class="ini" aria-hidden="true">CH</span><div><h3>Chaïma</h3><p>Kiné</p></div></article>
+        <article class="partner"><span class="ini" aria-hidden="true">LA</span><div><h3>Laura</h3><p>Diététicienne</p></div></article>
+        <article class="partner"><span class="ini" aria-hidden="true">NI</span><div><h3>Nicolas</h3><p>Préparateur physique</p></div></article>
+        <article class="partner"><span class="ini" aria-hidden="true">JI</span><div><h3>Jimmy</h3><p>Coach gardien</p></div></article>
       </div>
     </div>
   </section>
@@ -535,6 +658,13 @@ footer{border-top:1px solid var(--hair);padding-block:72px 40px;overflow:hidden}
   </div>
 </footer>
 
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Affiche en grand">
+  <button class="lb-x" type="button" aria-label="Fermer">×</button>
+  <button class="lb-nav prev" type="button" aria-label="Affiche précédente"><svg viewBox="0 0 14 14"><path d="M9 1 L3 7 L9 13" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></button>
+  <figure><img id="lb-img" alt=""><figcaption><span class="tag" id="lb-n"></span><b id="lb-t"></b></figcaption></figure>
+  <button class="lb-nav next" type="button" aria-label="Affiche suivante"><svg viewBox="0 0 14 14"><path d="M5 1 L11 7 L5 13" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></button>
+</div>
+
 <script>
 document.getElementById('form').addEventListener('submit',function(e){
   e.preventDefault();
@@ -544,4 +674,18 @@ document.getElementById('form').addEventListener('submit',function(e){
   var prenom=f.prenom.value.trim();
   f.innerHTML='<div class="sent"><svg style="width:28px;height:28px;color:var(--gold);flex:none"><use href="#tick"/></svg><div><b>Merci '+prenom.replace(/[<>&"]/g,'')+'</b><p>Ta demande est bien reçue. L’équipe LB Sport te recontacte très vite.</p></div></div>';
 });
+(function(){
+  var cards=[].slice.call(document.querySelectorAll('.aff')),lb=document.getElementById('lb'),img=document.getElementById('lb-img'),n=document.getElementById('lb-n'),t=document.getElementById('lb-t'),cur=0,last=null,x0=null;
+  function show(i){cur=(i+cards.length)%cards.length;var c=cards[cur],src=c.querySelector('img');img.src=src.src;img.alt=src.alt;n.textContent=String(cur+1).padStart(2,'0')+' / '+String(cards.length).padStart(2,'0');t.textContent=c.querySelector('b').textContent}
+  function open(i){last=document.activeElement;show(i);lb.hidden=false;document.body.style.overflow='hidden';lb.querySelector('.lb-x').focus()}
+  function close(){lb.hidden=true;document.body.style.overflow='';if(last)last.focus()}
+  cards.forEach(function(c,i){c.addEventListener('click',function(){open(i)})});
+  lb.querySelector('.lb-x').addEventListener('click',close);
+  lb.querySelector('.prev').addEventListener('click',function(){show(cur-1)});
+  lb.querySelector('.next').addEventListener('click',function(){show(cur+1)});
+  lb.addEventListener('click',function(e){if(e.target===lb)close()});
+  document.addEventListener('keydown',function(e){if(lb.hidden)return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1)});
+  lb.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+  lb.addEventListener('touchend',function(e){if(x0===null)return;var d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>50)show(cur+(d<0?1:-1));x0=null});
+})();
 </script>
